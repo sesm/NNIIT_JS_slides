@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--Font awesome	-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--JSbin-->
+		<script src="http://static.jsbin.com/js/embed.min.js?3.41.3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Welcome to NNIIT JavaScript course!</h1>
+					<p>
+						<small>Your teacher: <a href="https://www.github.com/sesm">Sergey Smyshlyaev</a> / <a href="https://www.twitter.com/_sesm">@_sesm</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h1>Meta</h1>
+				</section>
+
+				<section>
+					<h1>Interaction</h1>
+					<ul style="list-style: none">
+						<li class="fragment"><i class="fa fa-youtube fal-lg"></i> Lectures</li>
+                        <li class="fragment"><i class="fa fa-github fal-lg"></i> Homework</li>
+						<li class="fragment"><i class="fa fa-vk fal-lg"></i> Announces</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Topics</h1>
+					<ul>
+                        <li class="fragment">JS language basics</li>
+						<li class="fragment">Working with DOM</li>
+						<li class="fragment" style="list-style:none">... most basic JS courses end here</li>
+						<li class="fragment" style="list-style:none">but we'll go on:</li>
+						<li class="fragment">JS evolution and ES6</li>
+						<li class="fragment">Async programming</li>
+						<li class="fragment">HTTP and websockets</li>
+						<li class="fragment">Frameworks overview and React</li>
+						<li class="fragment">Server-side: Node.JS and Express</li>
+						<li class="fragment" style="list-style:none">Hope we'll get here!</li>
+					</ul>
+				</section>
+
+				<section>
+                    <h1>Learn by doing</h1>
+                    <p>1.5h lecture + 1.5h practice in class</p>
+					<p class="fragment">Use this time to ask questions!</p>
+				</section>
+
+				<section>
+					<h1>Dev environment</h1>
+                    <p class="fragment">Bring your own laptop if you can!</p>
+					<p class="fragment">Editor: notepad++ is ok, sublime/atom/webstorm preferred</p>
+                    <p class="fragment">Chrome/Firefox</p>
+					<p class="fragment">Terminal</p>
+				</section>
+
+				<section>
+					<h1>Prerequisites</h1>
+					<p class="fragment">HTML and CSS</p>
+                    <ul style="list-style: none">
+                        <li class="fragment">Best place to catch up: <a href="https://htmlacademy.ru/">HTML academy</a></li>
+                        <li class="fragment">Best references: <a href="http://cssreference.io">cssreference.io</a>, <a href="http://htmlreference.io">htmlreference.io</a></li>
+                    </ul>
+					<p class="fragment">Programming basics</p>
+				</section>
+
+				<section>
+					<h1>Lecture 1</h1>
+					<h3>JavaScript language basics</h3>
+				</section>
+
+				<section>
+					<h1>Meta</h1>
+					<p class="fragment">No point in discussing every subtle aspect of every language feature</p>
+					<p class="fragment">Use <a href="https://developer.mozilla.org/">MDN</a> as reference</p>
+					<p class="fragment">We'll discuss</p>
+                    <ul>
+                        <li class="fragment">What is frequently used</li>
+                        <li class="fragment">What is asked on interviews (with examples)</li>
+                    </ul>
+				</section>
+
+				<section>
+					<h1>JS execution</h1>
+					<p class="fragment">We'll dive into details of running JS in the browser later.</p>
+                    <p class="fragment">For this material we'll use</p>
+					<ul>
+						<li class="fragment">Browser console - it's super fast and convenient</li>
+						<li class="fragment"><a href="https://jsbin.com">JS Bin</a> - it's used for sharing code examples and for job interviews</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Browser console</h1>
+                    <p class="fragment">Expressions and evaluation</p>
+					<p class="fragment">Values</p>
+                    <p class="fragment">Statements and side effects</p>
+				</section>
+
+				<section>
+					<h1>JS bin</h1>
+					<p>Let's <a href="https://jsbin.com">try it</a></p>
+					<p class="fragment">Please vote for <a href="https://github.com/jsbin/jsbin/issues/2994">this issue</a></p>
+				</section>
+
+				<section>
+					<h1>Basic value types</h1>
+                    <ul style="list-style: none;">
+                    	<li class="fragment">String</li>
+						<li class="fragment">Number</li>
+						<li class="fragment">Boolean</li>
+						<li class="fragment">... ES6 adds more</li>
+					</ul>
+				</section>
+
+				<section>
+                    <h1>Examples</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>'Collections'</h1>
+					<ul style="list-style: none;">
+						<li class="fragment">Object</li>
+						<li class="fragment">Array</li>
+						<li class="fragment">... ES6 adds more</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Examples</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>typeof operator</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Special types</h1>
+					<ul style="list-style: none;">
+						<li class="fragment">Null</li>
+						<li class="fragment">Undefined</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Examples</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Equality</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Equality (==)</h1>
+					<p>
+					<img src="https://i.stack.imgur.com/35MpY.png" style="max-height: 70%; max-width: 70%" >
+                    </p>
+				</section>
+
+				<section>
+					<h1>Equality (===)</h1>
+					<p>
+						<img src="https://i.stack.imgur.com/62vxI.png" style="max-height: 70%; max-width: 70%" >
+					</p>
+				</section>
+
+				<section>
+					<h1>Type coercion</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Conditions</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Truthiness</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/cudimo/embed?js">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Falsy values</h1>
+                    <ul>
+						<li>false</li>
+						<li>null</li>
+						<li>undefined</li>
+						<li>0</li>
+						<li>NaN</li>
+						<li>""</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>var basics</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/mutiri/embed?console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Functions</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/geyuna/embed?js">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Scope basics</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/kikulor/embed?js">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Hoisting</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/pocezet/embed?js">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>For loop</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/galamib/embed?js">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>For-in loop</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/joqiyov/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+			    <section>
+					<h1>While loop</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/pixabag/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+                    <h1>Switch</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/fekeqas/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>OOP in JS</h1>
+					<p>Different from Java/C++/etc.</p>
+					<p>Prototype-based inheritance</p>
+				</section>
+
+				<section>
+					<h1>Constructor and instanceof</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/sogufo/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Prototype</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/hoyime/embed?js,console">JS Bin on jsbin.com</a>
+					<p>Important: 'monkey-patching', polyfills</p>
+				</section>
+
+				<section>
+					<h1>Bind, call, apply</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/vefuhi/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Exceptions</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/kalopu/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+                <section>
+					<h1>That's it</h1>
+					<p>
+						We'll get back to basics when we discuss ES6
+					</p>
+				</section>
+
+				<section>
+					<h1>Homework</h1>
+                    <h3>Interview puzzles</h3>
+					<p class="fragment">Put solutions on github</p>
+				</section>
+
+				<section>
+					<h1>Puzzles</h1>
+					<ul>
+						<li>FizzBuzz</li>
+						<li>Verify a prime number?</li>
+						<li>Get nth Fibonacci number?</li>
+						<li>Find the greatest common divisor of two numbers?</li>
+						<li>Remove duplicate members from an array?</li>
+						<li>Merge two sorted array?</li>
+						<li>Swap two numbers without using a temp variable?</li>
+						<li>Reverse a string in JavaScript?</li>
+						<li>Reverse words in a sentence?</li>
+						<li>Find the first non repeating char in a string?</li>
+						<li>Verify a word as palindrome?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>More puzzles</h1>
+                    <p>See <a href="https://github.com/MaximAbramchuck/awesome-interview-questions#javascript">this list</a> on github</p>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
