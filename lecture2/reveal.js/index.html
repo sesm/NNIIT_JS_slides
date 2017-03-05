@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--Font awesome	-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--JSbin-->
+		<script src="http://static.jsbin.com/js/embed.min.js?3.41.3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lecture 2</h1>
+					<h3>Working with DOM</h3>
+				</section>
+
+				<section>
+					<h1>Script execution</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/zetojul/embed?html,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Script execution 2</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/jikopas/embed?html,console,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: querying</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/luceka/embed?html,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: querying multiple</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/fapujif/embed?html,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: querying multiple 2</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/legebod/embed?html,console">JS Bin on jsbin.com</a>
+				</section>
+
+			    <section>
+					<h1>$</h1>
+					<p class="fragment">$ and $$ aliases in console</p>
+					<p class="fragment">About jQuery</p>
+				</section>
+
+				<section>
+					<h1>When DOM is available?</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/hebuco/embed?html,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Async and defer</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/sudigo/embed?html">JS Bin on jsbin.com</a>
+                    <a href="http://caniuse.com/defer">Can I use them?</a>
+				</section>
+
+				<section>
+					<h1>JSbin JS panel</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/qutavif/embed?html,js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: creating</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/buleril/embed?html,js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: updating</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/rexure/embed?html,js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>DOM API: deleting</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/jitesup/embed?html,js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Events and listeners</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/kinanol/embed?html,js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Events and listeners (2)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/defeced/embed?html,js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Bubbling and capturing</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/sisogar/embed?html,console,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Stop propagation</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/xugakis/embed?html,console,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Stop propagation 2</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/pejigi/embed?html,console,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Prevent default</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/maseqec/embed?html,console,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Homework</h1>
+					<p><a href="http://todomvc.com/examples/vanillajs/">TODO list</a></p>
+                    <p class="fragment">Steps:</p>
+                    <p class="fragment">Input appends to list</p>
+                    <p class="fragment">Checkbox adds class/attribute</p>
+                    <p class="fragment">Filter buttons hide/show based on class</p>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
