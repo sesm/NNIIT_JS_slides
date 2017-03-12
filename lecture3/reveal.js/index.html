@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--Font awesome	-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--JSbin-->
+		<script src="http://static.jsbin.com/js/embed.min.js?3.41.3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lecture 3</h1>
+					<h3>JavaScript evolution and ES6</h3>
+				</section>
+
+				<section>
+					<h1>EcmaScript version timeline</h1>
+					<img src="./Picture1.png">
+				</section>
+
+				<section>
+					<h1>tc39 proposals</h1>
+                    <a href="https://github.com/tc39/proposals">https://github.com/tc39/proposals</a>
+				</section>
+
+				<section>
+					<h1>Strict mode</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/wosaxo/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Strict mode(2)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/puzulu/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Strict mode(3)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/yasusuq/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Strict mode(4)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/tutotef/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Strict mode(5)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/pabemu/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Strict mode(6)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/jatecut/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+    				<h1>Strict mode(7)</h1>
+					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">Full list</a>
+				</section>
+
+				<section>
+					<h1>Map</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/diwuju/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Set</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/jobucon/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Can I use them?</h1>
+					<a href="http://kangax.github.io/compat-table/es6/#test-Set">Browser support</a>
+				</section>
+
+				<section>
+					<h1>Polyfills, shims and shams</h1>
+					<a href="https://github.com/paulmillr/es6-shim">ES6 shims</a>
+				</section>
+
+				<section>
+					<h1>Let</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/wisuxa/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Const</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/dameyo/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Transpilers: babel</h1>
+					<a href="https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-2&targets=&browsers=&builtIns=false&code=function%20useLet(a)%20%7B%0A%20%20if(true)%20%7B%0A%20%20%20%20let%20a%20%3D%201%3B%0A%20%20%7D%0A%20%20console.log(a)%3B%0A%7D">Converts es5 to es2015</a>
+					<p class="fragment">Babel can be used in browser</p>
+					<p class="fragment">Show example</p>
+				</section>
+
+				<section>
+					<h1>Modules</h1>
+					<a href="https://medium.com/@sungyeol.choi/javascript-module-module-loader-module-bundler-es6-module-confused-yet-6343510e7bde#.gr5q87ykn">Long history</a>
+                    <p class="fragment">Static modules standardized in ES2015</p>
+					<p class="fragment">Require 'bundlers' to work in browser</p>
+					<a class="fragment" href="https://github.com/tc39/proposal-dynamic-import">Dynamic modules are stage 3</a>
+				</section>
+
+				<section>
+					<h1>Arrow functions</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/nakoyut/embed?js,console">JS Bin on jsbin.com</a>
+                    <p class="fragment">Can't be used as constructors</p>
+					<p class="fragment">Don't create function scope</p>
+				</section>
+
+				<section>
+					<h1>Classes</h1>
+					<a href="https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-2&targets=&browsers=&builtIns=false&code=class%20MyError%20extends%20Error%20%7B%0A%20%20constructor(message%2C%20data)%20%7B%0A%20%20%20%20super(message)%3B%0A%20%20%20%20this.message%20%3D%20message%3B%0A%20%20%20%20this.data%20%3D%20data%3B%0A%20%20%20%20this.name%20%3D%20'MyError'%3B%0A%20%20%7D%0A%7D">Example: extending error</a>
+				</section>
+
+				<section>
+					<h1>Promise</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/meweyij/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Promise(2)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/gulakah/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Promise(3)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/virawa/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Promise(4)</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/raleteq/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

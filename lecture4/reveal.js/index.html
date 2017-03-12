@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--Font awesome	-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			.red {
+				background: indianred;
+			}
+			.green {
+				background: limegreen;
+			}
+		</style>
+
+		<!--JSbin-->
+		<script src="http://static.jsbin.com/js/embed.min.js?3.41.3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lecture 4</h1>
+					<h3>Working with HTTP</h3>
+				</section>
+
+				<section>
+					<h1>HTTP</h1>
+                    <p>Text protocol on top of TCP</p>
+					<p class="fragment">Show in Wireshark</p>
+					<p class="fragment">Show in browser</p>
+				</section>
+
+				<section>
+					<h1>HTTP</h1>
+                    <p class="fragment">URL</p>
+					<p class="fragment">Method</p>
+					<p class="fragment">Query</p>
+					<p class="fragment">Headers</p>
+					<p class="fragment">Body</p>
+				</section>
+
+				<section>
+					<h2>HTTP request methods</h2>
+					<table>
+						<thead>
+						<tr>
+							<th>Method</th>
+							<th>Req body</th>
+							<th>Res body</th>
+							<th>Safe</th>
+							<th>Idemp</th>
+							<th>Cached</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr class="fragment">
+							<td>GET</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+						</tr>
+						<tr class="fragment">
+							<td>POST</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+						</tr>
+						<tr class="fragment">
+							<td>PUT</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+						</tr>
+						<tr class="fragment">
+							<td>DELETE</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>HTTP request methods 2</h2>
+					<table>
+						<thead>
+						<tr>
+							<th>Method</th>
+							<th>Req body</th>
+							<th>Res body</th>
+							<th>Safe</th>
+							<th>Idemp</th>
+							<th>Cached</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr class="fragment">
+							<td>HEAD</td>
+							<td class="red">No</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+						</tr>
+						<tr class="fragment">
+							<td>CONNECT</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+							<td class="red">No</td>
+							<td class="red">No</td>
+						</tr>
+						<tr class="fragment">
+							<td>OPTIONS</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+						</tr>
+						<tr class="fragment">
+							<td>TRACE</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+						</tr>
+						<tr class="fragment">
+							<td>PATCH</td>
+							<td class="green">Yes</td>
+							<td class="green">Yes</td>
+							<td class="red">No</td>
+							<td class="red">No</td>
+							<td class="green">Yes</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h1>JSON</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/leyejiw/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>XMLHttpRequest</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/zabake/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Fetch</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/hanipe/embed?js,console">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>Curl</h1>
+					<p>curl -H "Content-Type: application/json" -X POST -d '{"text": "test2"}' localhost:3001/todo</p>
+					<p>curl -H "Content-Type: application/json" -X PUT -d '{"id": 1, "done": true}' localhost:3001/todo</p>
+					<p>curl -H "Content-Type: application/json" -X POST -d '{"ids": [1,2,3]}' localhost:3001/todos-delete</p>
+				</section>
+
+				<section>
+					<h1>Homework</h1>
+                    <p>Integrate todolist with backend</p>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
