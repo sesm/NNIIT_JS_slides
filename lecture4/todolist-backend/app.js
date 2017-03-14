@@ -6,6 +6,12 @@ let db = new sqlite.Database('db.sqlite');
 let app = express();
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.get('/todos', (req, res) => {
     db.all('select * from todos', function(err, data) {
         if(err) {
@@ -41,7 +47,7 @@ function inParam (sql, arr) {
     return sql.replace('?#', arr.join(','))
 }
 
-app.post('/todos-delete', (req,res) => {
+app.post('/todos-delete', (req, res) => {
     db.run(inParam('delete from todos where id in (?#)', req.body.ids), function(err){
         if(err) {
             res.status(500).send({error: err});
