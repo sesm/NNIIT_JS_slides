@@ -1,9 +1,9 @@
-const express = require('express');
-const sqlite = require('sqlite3');
-const bodyParser = require('body-parser');
+var express = require('express');
+var sqlite = require('sqlite3');
+var bodyParser = require('body-parser');
 
-let db = new sqlite.Database('db.sqlite');
-let app = express();
+var db = new sqlite.Database('db.sqlite');
+var app = express();
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
