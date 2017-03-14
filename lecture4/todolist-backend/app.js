@@ -24,7 +24,7 @@ app.get('/todos', (req, res) => {
 });
 
 app.post('/todo', (req, res) => {
-    db.run('insert into todos (text) values (?)', req.body.text, function(err, result) {
+    db.run('insert into todos (text, done) values (?, 0)', req.body.text, function(err, result) {
         if(err) {
             res.status(500).send({error: err});
         } else {
