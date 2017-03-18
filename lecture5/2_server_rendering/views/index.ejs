@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static blog</title>
+</head>
+<body>
+    <h1>My blog</h1>
+    <% posts.forEach(function(post) {%>
+    <div>
+        <h2><%=post.title%></h2>
+        <div><%=post.text%></div>
+    </div>
+    <% });%>
+    <h3>Submit new post</h3>
+    <form action="/submit" method="post">
+        <label>
+            Title
+            <input type="text" name="title">
+        </label>
+        <br/>
+        <label>
+            Text
+            <textarea name="text"></textarea>
+        </label>
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

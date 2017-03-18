@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static blog</title>
+</head>
+<body>
+    <div id="posts">
+
+    </div>
+    <br/>
+    <div>
+        <label>
+            Title
+            <input id="title" type="text">
+        </label>
+        <br/>
+        <label>
+            Text
+            <textarea id="text"></textarea>
+        </label>
+        <br/>
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        const postsContainer = document.querySelector("#posts");
+        const submitButton = document.querySelector("#submit");
+        const titleInput = document.querySelector("#title");
+        const textInput = document.querySelector("#text");
+        function addPosts(posts) {
+            postsContainer.innerHTML = "";
+            for(let i = 0; i < posts.length; i++) {
+                let post = posts[i];
+                let postTitle = document.createElement('h2');
+                postTitle.textContent = post.title;
+                let postText= document.createElement('div');
+                postText.textContent = post.text;
+                let newPost = document.createElement('div');
+                newPost.appendChild(postTitle);
+                newPost.appendChild(postText);
+                postsContainer.appendChild(newPost);
+            }
+        }
+        submitButton.addEventListener('click', function() {
+            fetch('/submit', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: titleInput.value,
+                    text: textInput.value
+                }),
+                headers: {'Content-Type': 'application/json'}
+            })
+                .then(()=> {
+                    titleInput.value = "";
+                    textInput.value = "";
+                    return fetch('/posts');
+                })
+                .then(res => res.json())
+                .then(json => addPosts(json));
+        });
+        fetch('/posts')
+            .then(res => res.json())
+            .then(json => addPosts(json));
+    </script>
+</body>
+</html>
