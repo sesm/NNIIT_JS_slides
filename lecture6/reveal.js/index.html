@@ -40,80 +40,73 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Lecture 5</h1>
-					<h3>History of JS frameworks</h3>
+					<h1>Lecture 6</h1>
+					<h3>React</h3>
 				</section>
 
 				<section>
-					<h1>Static sites</h1>
-                    <p>In the beginning websites were static</p>
-					<a href="http://localhost:3001">Like this</a>
+					<h1>Only view</h1>
+                    <p>React itself is a view library (unlike Angular/Ember)</p>
+					<p class="fragment">Uses Javascript and JSX instead of templates</p>
+					<p class="fragment">Relies on ES6 for modules and classes</p>
+					<p class="fragment">Has ecosystem of libraries and tools</p>
 				</section>
 
 				<section>
-					<h1>Dynamic sites</h1>
-					<p>1993 - CGI protocol</p>
-					<p>1995 - PHP</p>
-					<img src="dynamic_webpage.png">
-					<a href="http://localhost:3002">Dynamic sites with server rendering</a>
+					<h1>Example</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/lepobuh/embed?js,output">JS Bin on jsbin.com</a>
 				</section>
 
 				<section>
-					<h1>AJAX</h1>
-                    <p>2000 - XMLHttpRequest added to IE for Outlook Web Access application</p>
-					<img src="outlook2000.gif">
+					<h1>Props</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/hefudiy/embed?js,output">JS Bin on jsbin.com</a>
 				</section>
 
 				<section>
-					<h1>AJAX(2)</h1>
-					<p>by 2006 XMLHttpRequest is standardized, supported by all major browsers</p>
-					<a href="http://localhost:3003">Single page application (SPA)</a>
+					<h1>Nesting components</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/juhiwiv/embed?js,output">JS Bin on jsbin.com</a>
 				</section>
 
 				<section>
-					<h1>JS frameworks</h1>
-					<img src="frameworks.png">
+					<h1>State</h1>
+					<a class="jsbin-embed" href="http://jsbin.com/veveni/embed?js,output">JS Bin on jsbin.com</a>
 				</section>
 
 				<section>
-					<h1>First gen</h1>
-                    <p>UI libraries with module system and helpers</p>
-					<ul>
-						<li>Dojo</li>
-						<li>YUI</li>
-						<li>ExtJS</li>
-						<li>...etc</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Second gen</h1>
-					<p>Exploring different approaches of connecting data with DOM</p>
-					<ul>
-						<li>Angular - two-way binding</li>
-						<li>Backbone - MVC</li>
-						<li>Knockout - observables</li>
-						<li>...etc</li>
-					</ul>
-					<p>Angular was winning the popularity contest</p>
-				</section>
-
-				<section>
-					<h1>React</h1>
-					<p>Appeared in 2013, featuring</p>
+					<h1>lifecycle</h1>
                     <ul>
-						<li>One-way binding</li>
-						<li>Component-based approach</li>
-						<li>Heavy usage of ES6 features</li>
+						<li>render() - rendering logic</li>
+						<li>constructor() - initialization</li>
+						<li>setState() - updates state and forces re-render</li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>React(2)</h1>
-                    <p>Initially was criticized for embedding HTML in JS</p>
-					<p class="fragment">Was adopted for performance</p>
-					<p class="fragment">Later one-way binding was appreciated</p>
-					<p class="fragment">Many frameworks (Angular 2, Ember 2) borrowed those ideas</p>
+					<h1>lifecycle</h1>
+					<p>componentDidMount/componentWillUnmount</p>
+					<a class="jsbin-embed" href="http://jsbin.com/kukitup/embed?js,output">JS Bin on jsbin.com</a>
+				</section>
+
+				<section>
+					<h1>lifecycle</h1>
+                    <ul>
+						<li>shouldComponentUpdate - for performance</li>
+						<li>componentWillReceiveProps - change state when props are changed</li>
+						<li>componentWillMount - not used</li>
+						<li>
+							<a href="https://facebook.github.io/react/docs/react-component.html">Full list</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+                    <h1>Common workflow</h1>
+					<ul>
+						<li>HTML markup</li>
+                        <li><a href="http://magic.reactjs.net/htmltojsx.htm">Convert to JSX</a></li>
+						<li>Split into components</li>
+						<li>Add AJAX calls and event listeners</li>
+					</ul>
 				</section>
 
 				<section>
