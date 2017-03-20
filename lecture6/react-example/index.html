@@ -10,13 +10,92 @@
 <body>
     <div id="react"></div>
     <script type="text/babel">
-        class App extends React.Component {
+        class CreatePost extends React.Component {
             render() {
-                return <div>Hello!</div>;
+                return (
+                    <div>
+                        <label>
+                            Title
+                            <input ref="title" type="text" />
+                        </label>
+                        <br />
+                        <label>
+                            Text
+                            <textarea ref="text" defaultValue={""} />
+                        </label>
+                        <br />
+                        <button onClick={()=>
+                            this.submit(
+                                this.refs.title.value,
+                                this.refs.text.value)}>
+                            Submit
+                        </button>
+                    </div>
+                );
+            }
+
+            submit(title, text) {
+                fetch('/submit', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        title: title,
+                        text: text
+                    }),
+                    headers: {'Content-Type': 'application/json'}
+                }).then(()=> {
+                    this.refs.title.value = "";
+                    this.refs.text.value = "";
+                    this.props.afterSubmit();
+                });
             }
         }
-
-        ReactDOM.render(<App/>, document.querySelector('#react'));
+        class BlogPost extends React.Component{
+            render() {
+                return (<div>
+                    <h2>{this.props.title}</h2>
+                    <div>{this.props.text}</div>
+                </div>);
+            }
+        }
+        class Blog extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    posts: [{
+                        title: "First post",
+                        text: "Hello world",
+                    }, {
+                        title: "Post 2",
+                        text: "text 2",
+                    }]
+                };
+                this.updatePosts = this.updatePosts.bind(this);
+            }
+            updatePosts() {
+                fetch('/posts')
+                    .then(res=>res.json())
+                    .then(json=>this.setState({posts: json}));
+                window.scrollTo(0,0);
+            }
+            componentDidMount() {
+                this.updatePosts();
+            }
+            render() {
+                let posts = this.state.posts;
+                return (
+                    <div>
+                        <h1>My blog</h1>
+                        {posts.map((post,ix) =>
+                                <BlogPost key={ix}
+                                        title={post.title}
+                                        text={post.text}/>)}
+                        <h3>Submit new post</h3>
+                        <CreatePost afterSubmit={this.updatePosts}/>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Blog/>, document.querySelector('#react'));
     </script>
 </body>
 </html>
