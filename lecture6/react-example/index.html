@@ -6,96 +6,81 @@
     <script src="https://unpkg.com/react@15/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        ul {
+            padding-left: 5px;
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="react"></div>
+    <div id="react-root"></div>
     <script type="text/babel">
-        class CreatePost extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <label>
-                            Title
-                            <input ref="title" type="text" />
-                        </label>
-                        <br />
-                        <label>
-                            Text
-                            <textarea ref="text" defaultValue={""} />
-                        </label>
-                        <br />
-                        <button onClick={()=>
-                            this.submit(
-                                this.refs.title.value,
-                                this.refs.text.value)}>
-                            Submit
-                        </button>
-                    </div>
-                );
-            }
-
-            submit(title, text) {
-                fetch('/submit', {
+        class TodoItem extends React.Component {
+            deleteItem(id) {
+                fetch('http://localhost:3001/todos-delete', {
                     method: 'POST',
-                    body: JSON.stringify({
-                        title: title,
-                        text: text
-                    }),
-                    headers: {'Content-Type': 'application/json'}
-                }).then(()=> {
-                    this.refs.title.value = "";
-                    this.refs.text.value = "";
-                    this.props.afterSubmit();
-                });
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({ids: [id]})
+                })
+                    .then(res => {
+                        if(res.status == 200) {
+                            this.props.onDeleteItem(id);
+                        }
+                    })
             }
-        }
-        class BlogPost extends React.Component{
             render() {
-                return (<div>
-                    <h2>{this.props.title}</h2>
-                    <div>{this.props.text}</div>
-                </div>);
+                let classes = this.props.done ? "done" : "";
+                return (<li>
+                    <label>
+                        <input type="checkbox" />
+                        <span className={classes}>{this.props.text}</span>
+                        <button onClick={() =>
+                            this.deleteItem(this.props.id)}>
+                            x
+                        </button>
+                    </label>
+                </li>)
             }
         }
-        class Blog extends React.Component {
+
+        class TodoList extends React.Component {
             constructor() {
                 super();
                 this.state = {
-                    posts: [{
-                        title: "First post",
-                        text: "Hello world",
-                    }, {
-                        title: "Post 2",
-                        text: "text 2",
-                    }]
+                    todos: []
                 };
-                this.updatePosts = this.updatePosts.bind(this);
             }
-            updatePosts() {
-                fetch('/posts')
-                    .then(res=>res.json())
-                    .then(json=>this.setState({posts: json}));
-                window.scrollTo(0,0);
+
+            removeFromTodos = (id) => {
+                let todos = this.state.todos;
+                let newTodos = todos.filter(todo => todo.id != id);
+                this.setState({todos: newTodos});
             }
+
             componentDidMount() {
-                this.updatePosts();
+                fetch('http://localhost:3001/todos')
+                    .then(res => res.json())
+                    .then(json => this.setState({todos: json}))
             }
+
             render() {
-                let posts = this.state.posts;
-                return (
-                    <div>
-                        <h1>My blog</h1>
-                        {posts.map((post,ix) =>
-                                <BlogPost key={ix}
-                                        title={post.title}
-                                        text={post.text}/>)}
-                        <h3>Submit new post</h3>
-                        <CreatePost afterSubmit={this.updatePosts}/>
-                    </div>
-                );
+                return (<div>
+                    <ul>
+                        {this.state.todos.map(todo =>
+                            <TodoItem key={todo.id}
+                                id={todo.id}
+                                done={todo.done}
+                                text={todo.text}
+                                onDeleteItem={this.removeFromTodos}
+                                />
+                        )}
+                    </ul>
+                    <input />
+                </div>);
             }
         }
-        ReactDOM.render(<Blog/>, document.querySelector('#react'));
+        ReactDOM.render(<TodoList/>, document.querySelector('#react-root'));
     </script>
 </body>
 </html>
