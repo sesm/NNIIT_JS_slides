@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Json</title>
+</head>
+<body>
+    <div id="text"></div>
+    <script>
+        fetch('http://api.fixer.io/latest')
+            .then(res=>res.json())
+            .then(json=>document.querySelector('#text').textContent = JSON.stringify(json));
+    </script>
+    <div></div>
+</body>
+</html>

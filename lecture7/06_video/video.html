@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video</title>
+</head>
+<body>
+    <video></video>
+    <script>
+        let video = document.querySelector('video');
+        navigator.mediaDevices.getUserMedia({video: true})
+            .then(function(mediaStream) {
+                video.srcObject = mediaStream;
+                video.onloadedmetadata = function(e) {
+                    video.play();
+                };
+            })
+    </script>
+</body>
+</html>

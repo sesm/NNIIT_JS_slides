@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My location</title>
+</head>
+<body>
+    <div id="text"></div>
+    <script>
+        navigator.geolocation.getCurrentPosition(function(position) {
+            fetch('https://geocode.xyz/'+position.coords.latitude+','+position.coords.longitude+'?geoit=json')
+                .then(res=>res.json())
+                .then(json=>document.querySelector('#text').textContent = JSON.stringify(json));
+        })
+    </script>
+</body>
+</html>

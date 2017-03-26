@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify API</title>
+</head>
+<body>
+    <input id="search">
+    <div id="audios"></div>
+    <script>
+        let audioContainer = document.querySelector('#audios');
+        let search = document.querySelector('#search');
+        search.addEventListener('keypress', function(event) {
+            if(event.keyCode == 13) {
+                let search = event.target.value;
+                fetch('https://api.spotify.com/v1/search?q='+search+'&type=track')
+                    .then(res => res.json())
+                    .then(json => {
+                        audioContainer.innerHTML = '';
+                        json.tracks.items.map(track => {
+                            let div = document.createElement('div');
+                            let audio = document.createElement('audio');
+                            audio.controls = true;
+                            let source = document.createElement('source');
+                            source.src = track.preview_url;
+                            audio.appendChild(source);
+                            div.appendChild(audio);
+                            audioContainer.appendChild(div);
+                        })
+                    })
+            }
+        });
+
+    </script>
+</body>
+</html>

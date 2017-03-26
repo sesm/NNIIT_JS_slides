@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map example</title>
+    <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
+</head>
+<body>
+    <div id="map" style="width:600px;height:400px"></div>
+    <script>
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let map = new YMaps.Map(document.querySelector("#map"));
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+            let point = new YMaps.GeoPoint(lng, lat);
+            map.setCenter(point, 12);
+            let placemark = new YMaps.Placemark(point);
+            placemark.setIconContent('x');
+            map.addOverlay(placemark);
+        })
+    </script>
+</body>
+</html>

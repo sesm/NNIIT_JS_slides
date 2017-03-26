@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList local storage</title>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        ul {
+            padding-left: 5px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="react-root"></div>
+<script type="text/babel">
+    class TodoItem extends React.Component {
+        render() {
+            let classes = this.props.done ? "done" : "";
+            return (<li>
+                <label>
+                    <input type="checkbox" />
+                    <span className={classes}>{this.props.text}</span>
+                    <button onClick={() =>
+                        this.deleteItem(this.props.id)}>
+                        x
+                    </button>
+                </label>
+            </li>)
+        }
+    }
+
+    class TodoList extends React.Component {
+        constructor() {
+            super();
+            this.state = {todos: [], maxId: 0};
+        }
+
+        onKeyPress = (event) => {
+            if(event.charCode == 13 && event.target.value != '') {
+                let todos = this.state.todos;
+                let newMaxId = this.state.maxId + 1;
+                let newTodos = todos.concat([
+                    {id: newMaxId, text: event.target.value}
+                ]);
+                window.localStorage.setItem('todos', JSON.stringify(newTodos));
+                event.target.value = '';
+                this.setState({
+                    todos: newTodos,
+                    maxId: newMaxId
+                });
+            }
+        };
+
+        componentDidMount() {
+            let todos = JSON.parse(window.localStorage.getItem('todos'));
+            let maxId = Math.max.apply({}, todos.map(t => t.id));
+            this.setState({
+                maxId: maxId,
+                todos: todos
+            });
+        }
+
+        render() {
+            return (<div>
+                <ul>
+                    {this.state.todos.map(todo =>
+                            <TodoItem key={todo.id}
+                                      id={todo.id}
+                                      done={todo.done}
+                                      text={todo.text}
+                            />
+                    )}
+                </ul>
+                <input ref="input" onKeyPress={this.onKeyPress}/>
+            </div>);
+        }
+    }
+    ReactDOM.render(<TodoList/>, document.querySelector('#react-root'));
+</script>
+</body>
+</html>

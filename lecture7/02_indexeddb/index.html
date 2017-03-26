@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList IndexedDB</title>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        ul {
+            padding-left: 5px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="react-root"></div>
+<script type="text/babel">
+    class TodoItem extends React.Component {
+        deleteItem = () => {
+            let store = DB.result.transaction("Todos", "readwrite").objectStore("Todos");
+            store.delete(this.props.id);
+            this.props.onDeleteItem();
+        };
+
+        render() {
+            let classes = this.props.done ? "done" : "";
+            return (<li>
+                <label>
+                    <input type="checkbox" />
+                    <span className={classes}>{this.props.text}</span>
+                    <button onClick={() =>
+                        this.deleteItem(this.props.id)}>
+                        x
+                    </button>
+                </label>
+            </li>)
+        }
+    }
+
+    class TodoList extends React.Component {
+        constructor() {
+            super();
+            this.state = {todos: []};
+        }
+
+        syncWithDB = () => {
+            let todos = DB.result.transaction("Todos").objectStore("Todos").getAll();
+            todos.onsuccess = () => this.setState({todos: todos.result});
+        };
+
+        onKeyPress = (event) => {
+            if(event.charCode == 13 && event.target.value != '') {
+                let store = DB.result.transaction("Todos", "readwrite").objectStore("Todos");
+                store.put({text: event.target.value});
+                event.target.value = '';
+                this.syncWithDB();
+            }
+        };
+
+        componentDidMount() {
+            this.syncWithDB();
+        }
+
+        render() {
+            return (<div>
+                <ul>
+                    {this.state.todos.map(todo =>
+                            <TodoItem key={todo.id}
+                                      id={todo.id}
+                                      done={todo.done}
+                                      text={todo.text}
+                                      onDeleteItem={this.syncWithDB}
+                            />
+                    )}
+                </ul>
+                <input ref="input" onKeyPress={this.onKeyPress}/>
+            </div>);
+        }
+    }
+
+    const DB = window.indexedDB.open("Todos", 1);
+    DB.onupgradeneeded = function() {
+        DB.result.createObjectStore("Todos", {keyPath: "id", autoIncrement: true});
+    };
+    DB.onsuccess = function() {
+        let store = DB.result.transaction("Todos", "readwrite").objectStore("Todos");
+        ReactDOM.render(<TodoList/>, document.querySelector('#react-root'));
+    }
+</script>
+</body>
+</html>

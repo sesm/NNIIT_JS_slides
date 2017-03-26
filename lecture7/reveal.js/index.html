@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--Font awesome	-->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			.red {
+				background: indianred;
+			}
+			.green {
+				background: limegreen;
+			}
+		</style>
+
+		<!--JSbin-->
+		<script src="http://static.jsbin.com/js/embed.min.js?3.41.3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lecture 7</h1>
+					<h3>Inspiring browser features and external APIs</h3>
+				</section>
+
+				<section>
+					<h1>Local storage</h1>
+					<p>Store page data in browser</p>
+					<a href="localhost:8081/01_localstorage">Example</a>
+				</section>
+
+				<section>
+					<h1>IndexedDB</h1>
+					<p>Client side database with indexes</p>
+					<a href="localhost:8081/02_indexeddb">Example</a>
+				</section>
+
+				<section>
+					<h1>Using external APIs</h1>
+					<p>3 ways to through which APIs are exposed</p>
+                    <ul>
+        				<li>Resource links <a href="localhost:8081/03_using_apis/01_direct.html">(example)</a></li>
+						<li>Embedding <a href="localhost:8081/03_using_apis/02_embed.html">(example)</a></li>
+						<li>JSON API <a href="localhost:8081/03_using_apis/03_json.html">(example)</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Data and search</h1>
+					<a href="http://www.recipepuppy.com/about/api/">Recipes</a>
+				</section>
+
+				<section>
+					<h1>Geo and maps</h1>
+                    <p>
+						<a href="localhost:8081/04_geo/mylocation.html">Geocoding</a>
+                    </p>
+					<p>
+						<a href="https://geocode.xyz/api">https://geocode.xyz/api</a>
+					</p>
+				</section>
+
+				<section>
+					<h1>Geo and maps (2)</h1>
+					<p>
+						<a href="localhost:8081/04_geo/map.html">Maps</a>
+					</p>
+					<p>
+						<a href="https://yandex.github.io/mapsapi-examples-old/">https://yandex.github.io/mapsapi-examples-old/</a>
+					</p>
+				</section>
+
+				<section>
+					<h1>Audio</h1>
+					<a href="localhost:8081/05_audio/spotify.html">Spotify search</a>
+				</section>
+
+				<section>
+					<h1>Media capture</h1>
+					<a href="localhost:8081/06_video/video.html">Video capture</a>
+				</section>
+
+				<section>
+					<h1>Open Web API lists</h1>
+					<a href="https://github.com/toddmotto/public-apis">https://github.com/toddmotto/public-apis</a>
+					<a href="https://github.com/abhishekbanthia/Public-APIs">https://github.com/abhishekbanthia/Public-APIs</a>
+                    <p>You can find more in google</p>
+				</section>
+
+				<section>
+					<h1>Thank you!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
